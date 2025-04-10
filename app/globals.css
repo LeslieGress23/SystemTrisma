@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f1efef;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fffdfd;
+  }
+
+  .bg-red-500 {
+    background-color: #dc2626; /* Rojo más intenso en modo oscuro */
+  }
+
+  .text-white {
+    color: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+}
+
+/* Contenedor de la tabla con desplazamiento horizontal */
+.table-container {
+  @apply overflow-x-auto w-full;
+}
+
+/* Ajuste de tabla para dispositivos móviles */
+.table {
+  @apply w-full border-collapse border border-gray-300 min-w-[600px];
+}
+
+.table th,
+.table td {
+  @apply border border-gray-300 px-4 py-2 text-left;
+}
+
+.table th {
+  @apply bg-gray-200 text-gray-700;
+}
+
+/* Asegurar botones adaptables */
+.table button {
+  @apply sm:w-auto w-full text-sm px-3 py-2;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 640px) {
+  .table th,
+  .table td {
+    @apply text-sm;
+  }
+
+  .table-container {
+    @apply overflow-x-auto;
+  }
+  
+  .table {
+    @apply table-auto;
+  }
+}
+
+/* Mejoras en los modales */
+.modal {
+  @apply fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 p-4;
+}
+
+.modal-content {
+  @apply bg-white p-6 rounded-lg shadow-lg w-full max-w-md;
+}
+
+.modal-buttons {
+  @apply flex justify-end gap-4;
+}
